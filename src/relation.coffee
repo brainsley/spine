@@ -67,7 +67,7 @@ class Instance extends Spine.Module
 
   update: (value) ->
     unless value instanceof @model
-      value = new @model(value)
+      value = @model.fromJSON(value)
     value.save() if value.isNew()
     @record[@fkey] = value and value.id
 
